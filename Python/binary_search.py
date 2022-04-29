@@ -9,16 +9,16 @@ def left_boundary(sorted_list, element):    # first of all I want to find left b
     >>> print(left_boundary([1, 2, 3, 4], 5))
     3
     >>> print(left_boundary([7, 8, 9], 5))
-    0
+    -1
     >>> print(left_boundary([], 5))
-    0
+    -1
     >>> print(left_boundary([5, 5, 5, 5, 5, 5, 5], 5))
-    0
+    -1
     >>> print(left_boundary([1, 2, 3, 4, 6, 7, 8], 5))
     3
     """
     right = len(sorted_list)
-    left = 0
+    left = -1
     while right > left + 1:
         current = (left + right) // 2   # shooting to the middle of a list
         if sorted_list[current] >= element:
@@ -35,7 +35,7 @@ def right_boundary(sorted_list, element):   #  second step is searching for righ
     >>> print(right_boundary([1, 2, 3, 4], 5))
     4
     >>> print(right_boundary([7, 8, 9], 5))
-    1
+    0
     >>> print(right_boundary([], 5))
     0
     >>> print(right_boundary([5, 5, 5, 5, 5, 5, 5], 5))
@@ -44,7 +44,7 @@ def right_boundary(sorted_list, element):   #  second step is searching for righ
     4
     """
     right = len(sorted_list)
-    left = 0
+    left = -1
     while right > left + 1:
         current = (left + right) // 2   # shooting to the middle of a list
         if sorted_list[current] > element:
@@ -62,11 +62,11 @@ def binary_search(sorted_list, element):    #the third step is to return a tuple
     >>> print(binary_search([1, 2, 3, 4], 5))
     (3, 4)
     >>> print(binary_search([7, 8, 9], 5))
-    (0, 1)
+    (-1, 0)
     >>> print(binary_search([], 5))
-    (0, 0)
+    (-1, 0)
     >>> print(binary_search([5, 5, 5, 5, 5, 5, 5], 5))
-    (0, 7)
+    (-1, 7)
     >>> print(binary_search([1, 2, 3, 4, 6, 7, 8], 5))
     (3, 4)
     """
